@@ -17,7 +17,7 @@ def get_int(prompt, lower=0, upper=sys.maxsize):
             print("\tEnter a number")
 
 
-def get_player(prompt):
+def get_active_player(prompt):
     while True:
         in_str = input(prompt)
         if in_str in players:
@@ -66,7 +66,7 @@ def add_player(add_name, score):
 
 def remove_players():
     print(active_players_formatted())
-    remove_name = get_player("\nPlayer to remove: ")
+    remove_name = get_active_player("\nPlayer to remove: ")
 
     remove_player(remove_name)
     print(remove_name.capitalize() + " was removed")
@@ -80,7 +80,7 @@ def remove_player(remove_name):
 
 def change_player_name(cashed_out):
     print(active_players_formatted())
-    change_name = get_player("\nPlayer name to change: ")
+    change_name = get_active_player("\nPlayer name to change: ")
     new_name = input(f"\nPrevious name: {change_name.capitalize()}\n\tNew name: ")
     score = players[change_name]
     cashed_out_pass = cashed_out[change_name]
@@ -119,7 +119,7 @@ def change_counter():
 
 
 def change_player_score():
-    player_to_change = get_player("\tEnter player's name: ")
+    player_to_change = get_active_player("\tEnter player's name: ")
     new_score = get_int(f'\t\tEnter {player_to_change}\'s correct score: ')
     players[player_to_change] = new_score
 
