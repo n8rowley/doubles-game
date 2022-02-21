@@ -16,6 +16,9 @@ class Player:
     def __str__(self):
         return self.get_name()
 
+    def __eq__(self, other):
+        return self.__name == other.__name
+
 
 """Collection of players class"""
 class PlayerCollection:
@@ -30,7 +33,7 @@ class PlayerCollection:
         self.i_n = len(self.p)
 
     def remove(self, player):
-        self.p.remove(Player(player.get_name()))
+        self.p.remove(Player(player))
         
 
     def sort(self):
@@ -54,14 +57,19 @@ class PlayerCollection:
             self.i += 1
         return current_i
 
-    def __eq__(self, other):
-        return self.name == other.name
+    def __getItem(self, n):
+        for item in self.p:
+            if n == item.get_name:
+                return item
+        raise KeyError("Item not in Collection")
 
     def __repr__(self):
         return "Players: " + ", ".join([str(item) for item in self.p])
 
 if __name__ == "__main__":
     c = PlayerCollection()
-    c.add(Player('nate'))
-    c.add(Player('molly'))
+    p1 = Player('nate')
+    p2 = Player('molly')
+    c.add(p1)
+    c.add(p2)
 
