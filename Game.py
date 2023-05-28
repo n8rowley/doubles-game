@@ -165,6 +165,7 @@ class Game:
                     if newVal < self.currentRound:
                         raise Exception
                     self.rounds = newVal
+                    break
                 except:
                     input("\n*** Total number of rounds must be more than the number of rounds played ***")
                     continue

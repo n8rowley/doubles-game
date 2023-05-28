@@ -15,7 +15,7 @@ while True:
             game = Game(players=game.players, rounds=1)
             game.players.gameReset()
         else:
-            game = Game(rounds=3)
+            game = Game(rounds=10)
             game.setUp()
     else:
         break
